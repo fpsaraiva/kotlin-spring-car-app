@@ -45,4 +45,8 @@ class DriverAPI(
         )
         return driverRepository.save(copyDriver)
     }
+
+    //não está sendo tratado erro quando motorista já foi deletado
+    @DeleteMapping("/drivers/{id}")
+    fun deleteDriver(@PathVariable("id") id: Long) = driverRepository.deleteById(id)
 }
