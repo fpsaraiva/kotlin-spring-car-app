@@ -10,3 +10,9 @@ data class PatchDriver(
 data class PatchPassenger(
     val name: String?
 )
+
+data class TravelRequestInput(
+    val passengerId: Long,
+    val origin: String,
+    val destination: String
+)

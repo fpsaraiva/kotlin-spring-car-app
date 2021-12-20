@@ -1,6 +1,8 @@
 package dev.fpsaraiva.carapp.domain
 
+import dev.fpsaraiva.carapp.domain.enums.TravelRequestStatus
 import java.time.LocalDate
+import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.Id
@@ -35,5 +37,7 @@ data class TravelRequest(
     @ManyToOne
     val	passenger: Passenger,
     val	origin:	String,
-    val	destination: String
+    val	destination: String,
+    val status: TravelRequestStatus = TravelRequestStatus.CREATED,
+    val creationDate: LocalDateTime = LocalDateTime.now()
 )
