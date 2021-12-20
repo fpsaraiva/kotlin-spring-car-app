@@ -2,6 +2,7 @@ package dev.fpsaraiva.carapp.interfaces
 
 import dev.fpsaraiva.carapp.domain.Driver
 import dev.fpsaraiva.carapp.domain.DriverRepository
+import dev.fpsaraiva.carapp.domain.PatchDriver
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
@@ -31,6 +32,16 @@ class DriverAPI(
         val copyDriver = foundDriver.copy(
             birthDate = driver.birthDate,
             name = driver.name
+        )
+        return driverRepository.save(copyDriver)
+    }
+
+    @PatchMapping("/drivers/{id}")
+    fun incrementalUpdateDriver(@PathVariable("id") id: Long, @RequestBody driver: PatchDriver): Driver {
+        val foundDriver = driverRepository.findById(id).get()
+        val copyDriver = foundDriver.copy(
+            birthDate = driver.birthDate ?: foundDriver.birthDate,
+            name = driver.name ?: foundDriver.name
         )
         return driverRepository.save(copyDriver)
     }
