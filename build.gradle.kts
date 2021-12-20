@@ -27,6 +27,7 @@ dependencies {
 
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	implementation("org.springframework.hateoas:spring-hateoas")
+	testImplementation("io.rest-assured:spring-mock-mvc:4.3.2")
 }
 
 tasks.withType<KotlinCompile> {
