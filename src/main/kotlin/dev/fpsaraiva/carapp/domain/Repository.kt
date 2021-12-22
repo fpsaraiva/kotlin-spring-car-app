@@ -7,3 +7,5 @@ interface DriverRepository: JpaRepository<Driver, Long>
 interface PassengerRepository: JpaRepository<Passenger, Long>
 
 interface TravelRequestRepository: JpaRepository<TravelRequest, Long>
+
+interface UserRepository: JpaRepository<User, Long>
